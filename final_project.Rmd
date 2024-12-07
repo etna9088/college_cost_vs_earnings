@@ -95,7 +95,8 @@ ii. Most colleges have an average cost between $10k and $30k, with a noticeable 
 
 ```{r, fig.width=9, fig.height=6}
 ggplot() +
-  geom_histogram(data = college_reduced, aes(x = median_earn_10yr), binwidth = 3000, bins = 50) +
+  geom_histogram(data = college_reduced, aes(x = median_earn_10yr),
+                 binwidth = 3000, bins = 50) +
   labs(
     title = "Distribution of Median Earnings after 10 yrs",
     x = "Median Earnings (in US dollars)",
@@ -127,10 +128,41 @@ ii. There is a week upward trend: colleges with higher costs tend to have slight
 
 ### Covariation between Institution Types and Med Earnings
 
+```{r}
+college_cleaned <- college %>%
+  select(COSTT4_A, MD_EARN_WNE_P10, CONTROL) %>%
+  rename(
+    avg_cost = COSTT4_A,
+    median_earn_10yr = MD_EARN_WNE_P10
+  ) %>%
+  mutate(
+    instit_type = recode(
+      CONTROL,
+      `1` = "Public",
+      `2` = "Pr.Non-profit",
+      `3` = "Pr.For-profit"
+    )
+  )
+```
 
+```{r, fig.width=11, fig.height=6}
+ggplot() +
+  geom_violin(data = college_cleaned, aes(x = instit_type, 
+                                           y = median_earn_10yr,
+                                           fill = instit_type)) +
+  facet_wrap(~instit_type) + 
+  labs(
+    title = "Distribution of Median Earnings by Institution Type",
+    x = "Institution Type",
+    y = "Median Earnings (in US dollars)"
+  )
+```
+i. This violin plot shows how median earnings of graduates after 10 years on entry vary by institution type: public, private non-profit, and private for-profit. It helps us compare the range and patterns of earnings for each type of institution.
 
-
-
+ii. The violin plot by type
+     a. Private For-Profit: earnings are concentrated in the lower range, with most graduates earning below $50k, the distribution is narrow and skewed, suggesting a limited range of earnings.
+     b. Private Non-Profit: median earnings are more spread out compared to For-Profit institutions. There is a wider range of earnings, with most graduates earning between $50k and $100k. Some outliers exist above $125k, indicating cases of high earnings.
+     c. Public: earnings show a broader range compared to Private For-Profit institutions but are generally lower than Private Non-Profit institutions. Most graduates earn below $60k, but a few outliers reach above $120k.
 
 ## Summary Statistics
 

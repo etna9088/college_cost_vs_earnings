@@ -59,6 +59,8 @@ The U.S. Department of Education's College Scoreboard dataset contains a lot of 
 
 This question is relevant and interesting because many students and families want to know if paying more for college leads to better financial outcomes. To answer this question, I will use the variable 'COSTT4_A'(average cost of attendance) as the predictor and 'MD_EARN_WNE_P10'(median earning of graduates after 10 years) as the outcome. I will create a linear regression model to see if there is a significant relationship between these two continuous variables. The results of this analysis could help students decide if higher college costs are worth it.
 
+
+
 ## Preprocessing
 
 ```{r}
@@ -72,9 +74,11 @@ rename(
 
 I've selected only the columns 'COSTT4_A' and 'MD_EARN_WNE_P10' because they are directly relevant to my question, and I've renamed them to make them more human-readible and easier to interpret during the analysis.
 
+
+
 ## Visualization
 
-### Avg Cost Histogram
+##### Avg Cost Histogram
 
 ```{r, fig.width=9, fig.height=6}
 ggplot() +
@@ -91,7 +95,7 @@ i. This histogram shows how college attendance costs are distributed. It helps u
 ii. Most colleges have an average cost between $10k and $30k, with a noticeable peak around $20k. As costs increase beyond $30k, the number of colleges decreases. Very few institutions have costs above $60k, and there are no extreme outliers.
 
 
-### Median Earnings after 10 yrs Histogram
+##### Median Earnings after 10 yrs Histogram
 
 ```{r, fig.width=9, fig.height=6}
 ggplot() +
@@ -109,7 +113,7 @@ i. This histogram shows the distrubution of how much college graduates earn 10 y
 ii. The histogram above is right-skewed with the most earnings concentrated around $40k. Most of the data is in range of $0 to $100k. There are few colleges showing higher earnings above $100k, and few outliers between $120k and $250k. 
 
 
-### Covariation Scatterplot
+##### Avg Cost vs. Median Earnings
 
 ```{r, fig.width=9, fig.height=6}
 ggplot() +
@@ -126,7 +130,7 @@ i. This scatterplot shows the covariation between two continuous variables: aver
 ii. There is a week upward trend: colleges with higher costs tend to have slightly higher earnings. Most colleges have costs below around $50k and earnings below around $70k. A few colleges have very high costs (over $70k) or very high earnings (over $100k).
 
 
-### Covariation between Institution Types and Med Earnings
+##### Covariation between Institution Types and Med Earnings
 
 ```{r}
 college_cleaned <- college %>%
@@ -165,6 +169,7 @@ ii. The violin plot by type
      c. Public: earnings show a broader range compared to Private For-Profit institutions but are generally lower than Private Non-Profit institutions. Most graduates earn below $60k, but a few outliers reach above $120k.
 
 
+
 ## Summary Statistics
 
 ```{r}
@@ -191,6 +196,8 @@ median_earn_summary <- college_cleaned %>%
   )
 ```
 
+
+
 ## Data Analysis
 
 ```{r}
@@ -205,7 +212,7 @@ model_performance <- glance(model)
 i. The linear model shows a statistically significant relationship between average cost and median earnings. The slope indicates that for every $1 increase in average cost, median earning increase by around $4.59. However, the R^{2} value (34.4%) suggests that average cost alone doesn't fully explain variations in median earnings. The model's significance (very low p-value) confirms that relationship is unlikely due to a random chance.
 
 
-### Observed vs. Predicted Plot
+##### Observed vs. Predicted Plot
 
 ```{r}
 college_filtered <- college_cleaned %>%
@@ -226,7 +233,8 @@ college_filtered <- college_filtered %>%
 
 ```{r, fig.width=9, fig.height=6}
 ggplot() +
-  geom_point(data = college_filtered, aes(x = predicted, y = median_earn_10yr), alpha = 0.5) +
+  geom_point(data = college_filtered, aes(x = predicted, y = median_earn_10yr),
+             alpha = 0.5) +
   geom_abline(slope = 1, intercept = 0, color = "red") +
   labs(
     title = "Observed vs. Predicted Plot",
@@ -235,11 +243,13 @@ ggplot() +
   )
 ```
 
-### Residuals vs. Predicted Plot
+
+##### Residuals vs. Predicted Plot
 
 ```{r, fig.width=9, fig.height=6}
 ggplot() +
-  geom_point(data = college_filtered, aes(x = predicted, y = residuals), alpha = 0.5) +
+  geom_point(data = college_filtered, aes(x = predicted, y = residuals),
+             alpha = 0.5) +
   geom_hline(yintercept = 0, color = "red") +
   labs(
     title = "Residuals vs. Predicted Plot",
@@ -248,7 +258,8 @@ ggplot() +
   )
 ```
 
-### Q-Q Plot
+
+##### Q-Q Plot
 
 ```{r, fig.width=9, fig.height=6}
 qqnorm(college_filtered$residuals, main = "Q-Q Plot of Residuals")
@@ -260,6 +271,8 @@ i. Linearity: reasonably satisfied, the points roughly follow along the red diag
 ii. Homoscedasticity: the residuals are scattered around the horizontal red line at 0, but the spread of residuals increases slightly as predicted values increase, which suggests a mild violation of the homoscedasticity assumption.
 
 iii. Normality of Residuals: Most points lie close to the red diagonal line, indicating the residuals are approximately normally distributed. However, the tails deviate significantly from the line, which means presence of outliers. 
+
+
 
 ## Conclusion
 

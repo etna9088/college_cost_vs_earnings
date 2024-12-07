@@ -164,10 +164,32 @@ ii. The violin plot by type
      b. Private Non-Profit: median earnings are more spread out compared to For-Profit institutions. There is a wider range of earnings, with most graduates earning between $50k and $100k. Some outliers exist above $125k, indicating cases of high earnings.
      c. Public: earnings show a broader range compared to Private For-Profit institutions but are generally lower than Private Non-Profit institutions. Most graduates earn below $60k, but a few outliers reach above $120k.
 
+
 ## Summary Statistics
 
+```{r}
+avg_cost_summary <- college_cleaned %>%
+  reframe(
+    count = n(),
+    mean = mean(avg_cost, na.rm = TRUE),
+    median = median(avg_cost, na.rm = TRUE),
+    range = range(avg_cost, na.rm = TRUE),
+    sd = sd(avg_cost, na.rm = TRUE),
+    iqr = IQR(avg_cost, na.rm = TRUE)
+  )
+```
 
-
+```{r}
+median_earn_summary <- college_cleaned %>%
+  reframe(
+    count = n(),
+    mean = mean(median_earn_10yr, na.rm = TRUE),
+    median = median(median_earn_10yr, na.rm = TRUE),
+    range = range(median_earn_10yr, na.rm = TRUE),
+    sd = sd(median_earn_10yr, na.rm = TRUE),
+    iqr = IQR(median_earn_10yr, na.rm = TRUE)
+  )
+```
 
 ## Data Analysis
 

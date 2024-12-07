@@ -205,14 +205,61 @@ model_performance <- glance(model)
 i. The linear model shows a statistically significant relationship between average cost and median earnings. The slope indicates that for every $1 increase in average cost, median earning increase by around $4.59. However, the R^{2} value (34.4%) suggests that average cost alone doesn't fully explain variations in median earnings. The model's significance (very low p-value) confirms that relationship is unlikely due to a random chance.
 
 
+### Observed vs. Predicted Plot
 
+```{r}
+college_filtered <- college_cleaned %>%
+  filter(!is.na(avg_cost), !is.na(median_earn_10yr))
+```
 
+```{r}
+model <- lm(median_earn_10yr ~ avg_cost, data = college_filtered)
+```
 
+```{r}
+college_filtered <- college_filtered %>%
+  mutate(
+    predicted = predict(model),
+    residuals = resid(model)
+  )
+```
 
+```{r, fig.width=9, fig.height=6}
+ggplot() +
+  geom_point(data = college_filtered, aes(x = predicted, y = median_earn_10yr), alpha = 0.5) +
+  geom_abline(slope = 1, intercept = 0, color = "red") +
+  labs(
+    title = "Observed vs. Predicted Plot",
+    x = "Predicted Median Earnings",
+    y = "Observed Median Earnings"
+  )
+```
 
+### Residuals vs. Predicted Plot
 
+```{r, fig.width=9, fig.height=6}
+ggplot() +
+  geom_point(data = college_filtered, aes(x = predicted, y = residuals), alpha = 0.5) +
+  geom_hline(yintercept = 0, color = "red") +
+  labs(
+    title = "Residuals vs. Predicted Plot",
+    x = "Predicted Median Earnings",
+    y = "Residuals"
+  )
+```
 
+### Q-Q Plot
 
+```{r, fig.width=9, fig.height=6}
+qqnorm(college_filtered$residuals, main = "Q-Q Plot of Residuals")
+qqline(college_filtered$residuals, col = "red")
+```
+
+i. Linearity: reasonably satisfied, the points roughly follow along the red diagonal line, with some scatter suggesting the model doesn't fully capture all variability.
+
+ii. Homoscedasticity: the residuals are scattered around the horizontal red line at 0, but the spread of residuals increases slightly as predicted values increase, which suggests a mild violation of the homoscedasticity assumption.
+
+iii. Normality of Residuals: Most points lie close to the red diagonal line, indicating the residuals are approximately normally distributed. However, the tails deviate significantly from the line, which means presence of outliers. 
 
 ## Conclusion
 

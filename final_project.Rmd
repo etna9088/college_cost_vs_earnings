@@ -61,8 +61,16 @@ This question is relevant and interesting because many students and families wan
 
 ## Preprocessing
 
+```{r}
+college_reduced <- college %>%
+  select(COSTT4_A, MD_EARN_WNE_P10) %>%
+rename(
+  avg_cost = COSTT4_A,
+  median_earn_10yr = MD_EARN_WNE_P10
+)
+```
 
-
+I've selected only the columns 'COSTT4_A' and 'MD_EARN_WNE_P10' because they are directly relevant to my question, and I've renamed them to make them more human-readible and easier to interpret during the analysis.
 
 ## Visualization
 

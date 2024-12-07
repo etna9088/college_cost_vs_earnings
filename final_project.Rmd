@@ -193,6 +193,24 @@ median_earn_summary <- college_cleaned %>%
 
 ## Data Analysis
 
+```{r}
+model <- lm(median_earn_10yr ~ avg_cost, data = college_cleaned)
+```
+
+```{r}
+model_summary <- tidy(model)
+model_performance <- glance(model)
+```
+
+i. The linear model shows a statistically significant relationship between average cost and median earnings. The slope indicates that for every $1 increase in average cost, median earning increase by around $4.59. However, the R^{2} value (34.4%) suggests that average cost alone doesn't fully explain variations in median earnings. The model's significance (very low p-value) confirms that relationship is unlikely due to a random chance.
+
+
+
+
+
+
+
+
 
 
 

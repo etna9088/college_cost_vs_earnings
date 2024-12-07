@@ -74,8 +74,19 @@ I've selected only the columns 'COSTT4_A' and 'MD_EARN_WNE_P10' because they are
 
 ## Visualization
 
+```{r, fig.width=9, fig.height=6}
+ggplot() +
+  geom_histogram(data = college_reduced, aes(x = avg_cost), binwidth = 3000) +
+  labs(
+    title = "Distribution of Avg. Cost of Attendance",
+    x = "Average Cost (in US dollars)",
+    y = "Count"
+  )
+```
 
+i. This histogram shows how college attendance costs are distributed. It helps us understand the typical cost range and whether some colleges are much more expensive than others.
 
+ii. Most colleges have an average cost between $10k and $30k, with a noticeable peak around $20k. As costs increase beyond $30k, the number of colleges decreases. Very few institutions have costs above $60k, and there's no extreme outliers.
 
 ## Summary Statistics
 

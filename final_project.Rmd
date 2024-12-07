@@ -74,6 +74,8 @@ I've selected only the columns 'COSTT4_A' and 'MD_EARN_WNE_P10' because they are
 
 ## Visualization
 
+### Avg Cost Histogram
+
 ```{r, fig.width=9, fig.height=6}
 ggplot() +
   geom_histogram(data = college_reduced, aes(x = avg_cost), binwidth = 3000) +
@@ -88,6 +90,8 @@ i. This histogram shows how college attendance costs are distributed. It helps u
 
 ii. Most colleges have an average cost between $10k and $30k, with a noticeable peak around $20k. As costs increase beyond $30k, the number of colleges decreases. Very few institutions have costs above $60k, and there are no extreme outliers.
 
+
+### Median Earnings after 10 yrs Histogram
 
 ```{r, fig.width=9, fig.height=6}
 ggplot() +
@@ -104,10 +108,24 @@ i. This histogram shows the distrubution of how much college graduates earn 10 y
 ii. The histogram above is right-skewed with the most earnings concentrated around $40k. Most of the data is in range of $0 to $100k. There are few colleges showing higher earnings above $100k, and few outliers between $120k and $250k. 
 
 
+### Covariation Scatterplot
+
+```{r, fig.width=9, fig.height=6}
+ggplot() +
+  geom_point(data = college_reduced, aes(x = avg_cost, y = median_earn_10yr)) + 
+  labs(
+    title = "Relationship between Avg Cost and Median Earnings",
+    x = "Average Cost (in US dollars)",
+    y = "Median Earning after 10 yrs (in US dollars)"
+  )
+```
+
+i. This scatterplot shows the covariation between two continuous variables: average cost of attendance and median earning after 10 years of entry. It helps us see if spending more on colleges leads to higher earnings.
+
+ii. There is a week upward trend: colleges with higher costs tend to have slightly higher earnings. Most colleges have costs below around $50k and earnings below around $70k. A few colleges have very high costs (over $70k) or very high earnings (over $100k).
 
 
-
-
+### Covariation between Institution Types and Med Earnings
 
 
 

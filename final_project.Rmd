@@ -263,6 +263,9 @@ iii. Normality of Residuals: Most points lie close to the red diagonal line, ind
 
 ## Conclusion
 
+In this analysis, I explored whether the average cost of attending a college affects the median earnings of its graduates 10 years after enrollment. The results showed a positive relationship: as the cost of attendance increases, median earnings tend to rise. However, the R^{2} value of 0.34 suggests that the cost of attendance explains only part of the variation in earnings. The scatterplot and model showed a clear positive trend between cost and earnings, but the diagnostic plot highlighted some limitations.For example, the spread of residuals increased with higher predictions, suggesting potential issues with the model's assumptions. The Q-Q plot showed some outliers, which means that not all residuals follow a normal distribution. 
+
+These findings are important for understanding trade-offs of higher education. They suggest that while higher costs may lead to better earnings, other factors also matters. This information could help students, families, and colleges make better decisions about the value of education. To conclude, while the average cost of attendance impacts graduate earnings, it's only part of the bigger picture. Other factors, such as program types, location, or student demographics, may provide more information into what drives earnings.
 
 
 

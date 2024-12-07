@@ -1,6 +1,6 @@
 ---
 title: "Final Project"
-author: "FirstName LastName"
+author: "Madina Kanafina"
 date: "`r Sys.Date()`"
 documentclass: article
 geometry: margin=1in
@@ -45,7 +45,7 @@ suppressPackageStartupMessages(library(broom))
 # Load dataset
 college <- read_rds("college.rds") %>%
   type_convert(
-    na=combine("", "NA", "PrivacySuppressed")
+    na=vctrs::vec_c("", "NA", "PrivacySuppressed")
   )
 # Set seed
 set.seed(98261936)
@@ -53,8 +53,11 @@ set.seed(98261936)
 
 ## Introduction
 
+The U.S. Department of Education's College Scoreboard dataset contains a lot of information about colleges across the United States. For this final project, I will investigate the question:
 
+> "Is there a relationship between how much it costs to attend the college and how much its graduates earn 10 years after enrolling?"
 
+This question is relevant and interesting because many students and families want to know if paying more for college leads to better financial outcomes. To answer this question, I will use the variable 'COSTT4_A'(average cost of attendance) as the predictor and 'MD_EARN_WNE_P10'(median earning of graduates after 10 years) as the outcome. I will create a linear regression model to see if there is a significant relationship between these two continuous variables. The results of this analysis could help students decide if higher college costs are worth it.
 
 ## Preprocessing
 

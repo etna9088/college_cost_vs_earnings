@@ -22,9 +22,11 @@ My analysis of the College Scorecard data revealed a statistically significant r
 * **Model Limitations:** While statistically significant, the model's **R-squared value of 0.344** suggests that the average cost of a college explains only about 34.4% of the variation in graduate earnings. This highlights that many other factors contribute to post-graduate income. Diagnostic plots, such as the Q-Q plot, showed that residuals are not perfectly normally distributed and that some outliers exist, which indicates that our model's assumptions have some limitations.
 * **Visualizations:** 
     * **Scatter Plot:** The scatter plot visually supports the linear model's findings, showing a **clear positive trend** between college cost and median earnings.
+    
 ![Scatterplot of College Cost vs. Median Earnings](images/Scatterplot.png)
 
     * **Violin Plot:** The violin plot of institution types versus earnings provided additional context. It shows that earnings at private non-profit colleges are more spread out and generally higher than those at private for-profit and public institutions, suggesting that institution type is a significant factor in earning potential.
+    
 ![Distribution of Median Earnings by Institution Type](images/Violin.png)
 
 

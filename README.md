@@ -48,4 +48,11 @@ To run this analysis, you will need to have R and RStudio installed on your mach
 ```bash
 git clone [https://github.com/etna9088/college_cost_vs_earnings.git](https://github.com/etna9088/college_cost_vs_earnings.git)
 ```
-2. **Open the R project:** 
+
+2. **Open the R project:** Open the `college_cost_vs_earnings.Rproj` file in RStudio. This will open the project in the correct environment.
+3. **Install R packages:** Install the necessary packages by running the following command in the RStudio console:
+
+```{r}
+install.packages(c("tidyverse", "infer", "modelr", "broom"))
+```
+4. **Run the Analysis:** Open the 

@@ -55,4 +55,5 @@ git clone [https://github.com/etna9088/college_cost_vs_earnings.git](https://git
 ```{r}
 install.packages(c("tidyverse", "infer", "modelr", "broom"))
 ```
-4. **Run the Analysis:** Open the 
+4. **Run the Analysis:** Open the `final_project.Rmd` file and click the **"Knit"** button. This will run the code and generate final report with all the results and visualizations. 
+

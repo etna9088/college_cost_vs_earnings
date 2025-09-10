@@ -30,4 +30,15 @@ My analysis of the College Scorecard data revealed a statistically significant r
 ## Conclusion:
 In conclusion, results suggest that while higher education costs are positively correlated with future earnings, they are only one part of a complex picture. This analysis provides valuable insights for students and families making decisions about higher education, while also pointing to the importance of considering additional factors like a student's program of study, location, and other demographic details.
 
+
 ## Code and Data:
+This repository contains all the code and data necessary to reproduce the analysis.
+
+* final_project.Rmd: The primary R Markdown file containing all the code for the data cleaning, analysis, and visualization.
+* college_scorecard_data.csv: The raw dataset used for this project, a subset of the U.S. Department of Education's College Scorecard data.
+* DESCRIPTION: A standard file that lists the R packages required to run the analysis.
+
+
+## How to Run:
+To run this analysis, you will need to have R and RStudio installed on your machine.
+

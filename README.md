@@ -48,7 +48,7 @@ To run this analysis, you will need to have R and RStudio installed on your mach
 1. **Clone the repository:** Open your terminal or GitBash and run the following command to download the project files:
 
 ```bash
-git clone [https://github.com/etna9088/college_cost_vs_earnings.git](https://github.com/etna9088/college_cost_vs_earnings.git)
+git clone https://github.com/etna9088/college_cost_vs_earnings.git
 ```
 
 2. **Open the R project:** Open the `college_cost_vs_earnings.Rproj` file in RStudio. This will open the project in the correct environment.

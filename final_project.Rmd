@@ -26,14 +26,6 @@ college <- readr::read_csv("college_scorecard_data.csv") %>%
 set.seed(98261936)
 ```
 
-## About Dataset
-
-This project utilizes a subset of the **College Scorecard Dataset**, a publicly available resource started by the U.S. Department of Education. The raw dataset used in this analysis, college_scorecard_data.csv, is included in this repository for full reproducibility.
-The original dataset is quite large and includes many variables with intentionally suppressed data for privacy reasons.
-* MD_EARN_WNE_P10: Median earnings of students working and not enrolled 10 years after entry.
-* COSTT4_A: Average annual cost of attendance.
-A complete **data dictionary** with detailed explanations for all variables can be found here: [College Scorecard Data Dictionary](https://collegescorecard.ed.gov/data/data-documentation)
-
 ## Preprocessing
 
 ```{r}
@@ -44,8 +36,6 @@ rename(
   median_earn_10yr = MD_EARN_WNE_P10
 )
 ```
-
-
 
 ## Visualization
 
@@ -63,7 +53,6 @@ ggplot() +
 
 This histogram shows how college attendance costs are distributed. It helps us understand the typical cost range and whether some colleges are much more expensive than others. Most colleges have an average cost between $10k and $30k, with a noticeable peak around $20k. As costs increase beyond $30k, the number of colleges decreases. Very few institutions have costs above $60k, and there are no extreme outliers.
 
-
 ##### Median Earnings after 10 yrs Histogram
 
 ```{r, fig.width=9, fig.height=6}
@@ -78,7 +67,6 @@ ggplot() +
 ```
 
 This histogram shows the distrubution of how much college graduates earn 10 years after entry. It helps us see typical earnings, the overall pattern, and if there are any outliers. The histogram above is right-skewed with the most earnings concentrated around $40k. Most of the data is in range of $0 to $100k. There are few colleges showing higher earnings above $100k, and few outliers between $120k and $250k. 
-
 
 ##### Avg Cost vs. Median Earnings
 
@@ -126,13 +114,11 @@ ggplot() +
     y = "Median Earnings (in US dollars)"
   )
 ```
-This violin plot shows how median earnings of graduates after 10 years on entry vary by institution type: public, private non-profit, and private for-profit. It helps us compare the range and patterns of earnings for each type of institution. 
+This violin plot shows how median earnings of graduates after 10 years on entry vary by institution type: public, private non-profit (PNP), and private for-profit (PFP). It helps us compare the range and patterns of earnings for each type of institution. 
 The violin plot by type:
-     a. Private For-Profit: earnings are concentrated in the lower range, with most graduates earning below $50k, the distribution is narrow and skewed, suggesting a limited range of earnings.
-     b. Private Non-Profit: median earnings are more spread out compared to For-Profit institutions. There is a wider range of earnings, with most graduates earning between $50k and $100k. Some outliers exist above $125k, indicating cases of high earnings.
-     c. Public: earnings show a broader range compared to Private For-Profit institutions but are generally lower than Private Non-Profit institutions. Most graduates earn below $60k, but a few outliers reach above $120k.
-
-
+     a. *Private For-Profit:* earnings are concentrated in the lower range, with most graduates earning below $50k, the distribution is narrow and skewed, suggesting a limited range of earnings.
+     b. *Private Non-Profit:* median earnings are more spread out compared to For-Profit institutions. There is a wider range of earnings, with most graduates earning between $50k and $100k. Some outliers exist above $125k, indicating cases of high earnings.
+     c. *Public:* earnings show a broader range compared to Private For-Profit institutions but are generally lower than Private Non-Profit institutions. Most graduates earn below $60k, but a few outliers reach above $120k.
 
 ## Summary Statistics
 
@@ -160,8 +146,6 @@ median_earn_summary <- college_cleaned %>%
   )
 ```
 
-
-
 ## Data Analysis
 
 ```{r}
@@ -173,7 +157,7 @@ model_summary <- tidy(model)
 model_performance <- glance(model)
 ```
 
-i. The linear model shows a statistically significant relationship between average cost and median earnings. The slope indicates that for every $1 increase in average cost, median earning increase by around $4.59. However, the R^{2} value (34.4%) suggests that average cost alone doesn't fully explain variations in median earnings. The model's significance (very low p-value) confirms that relationship is unlikely due to a random chance.
+The linear model shows a statistically significant relationship between average cost and median earnings. The slope indicates that for every $1 increase in average cost, median earning increase by around $4.59. However, the R-squared value (34.4%) suggests that average cost alone doesn't fully explain variations in median earnings. The model's significance (very low p-value) confirms that relationship is unlikely due to a random chance.
 
 
 ##### Observed vs. Predicted Plot
@@ -230,18 +214,12 @@ qqnorm(college_filtered$residuals, main = "Q-Q Plot of Residuals")
 qqline(college_filtered$residuals, col = "red")
 ```
 
-Linearity: reasonably satisfied, the points roughly follow along the red diagonal line, with some scatter suggesting the model doesn't fully capture all variability.
-Homoscedasticity: the residuals are scattered around the horizontal red line at 0, but the spread of residuals increases slightly as predicted values increase, which suggests a mild violation of the homoscedasticity assumption.
-Normality of Residuals: Most points lie close to the red diagonal line, indicating the residuals are approximately normally distributed. However, the tails deviate significantly from the line, which means presence of outliers. 
-
-
+*Linearity:* reasonably satisfied, the points roughly follow along the red diagonal line, with some scatter suggesting the model doesn't fully capture all variability.
+*Homoscedasticity:* the residuals are scattered around the horizontal red line at 0, but the spread of residuals increases slightly as predicted values increase, which suggests a mild violation of the homoscedasticity assumption.
+*Normality of Residuals:* Most points lie close to the red diagonal line, indicating the residuals are approximately normally distributed. However, the tails deviate significantly from the line, which means presence of outliers. 
 
 ## Conclusion
 
 In this analysis, I explored whether the average cost of attending a college affects the median earnings of its graduates 10 years after enrollment. The results showed a positive relationship: as the cost of attendance increases, median earnings tend to rise. However, the R^{2} value of 0.34 suggests that the cost of attendance explains only part of the variation in earnings. The scatterplot and model showed a clear positive trend between cost and earnings, but the diagnostic plot highlighted some limitations.For example, the spread of residuals increased with higher predictions, suggesting potential issues with the model's assumptions. The Q-Q plot showed some outliers, which means that not all residuals follow a normal distribution. 
 
 These findings are important for understanding trade-offs of higher education. They suggest that while higher costs may lead to better earnings, other factors also matters. This information could help students, families, and colleges make better decisions about the value of education. To conclude, while the average cost of attendance impacts graduate earnings, it's only part of the bigger picture. Other factors, such as program types, location, or student demographics, may provide more information into what drives earnings.
-
-
-
-

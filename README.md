@@ -17,6 +17,7 @@ This data analysis project investigates the relationship between college costs a
 ## Key Findings and Results:
 
 My analysis of the College Scorecard data revealed a statistically significant relationship between the average cost of a college and the median earnings of its graduates ten years after enrollment.
+
 * **Linear Model:** A linear regression model showed a strong positive association between the two variables. The model's slope indicates that for every $1 increase in average cost of attendance, the median earnings of graduates tend to increase by approximately *$4.59*. The model's low p-value confirms that this relationship is highly significant and not due to random chance.
 * **Model Limitations:** While statistically significant, the model's **R-squared value of 0.344** suggests that the average cost of a college explains only about 34.4% of the variation in graduate earnings. This highlights that many other factors contribute to post-graduate income. Diagnostic plots, such as the Q-Q plot, showed that residuals are not perfectly normally distributed and that some outliers exist, which indicates that our model's assumptions have some limitations.
 * **Visualizations:** 
@@ -42,3 +43,9 @@ This repository contains all the code and data necessary to reproduce the analys
 ## How to Run:
 To run this analysis, you will need to have R and RStudio installed on your machine.
 
+1. **Clone the repository:** Open your terminal or GitBash and run the following command to download the project files:
+
+```bash
+git clone [https://github.com/etna9088/college_cost_vs_earnings.git](https://github.com/etna9088/college_cost_vs_earnings.git)
+```
+2. **Open the R project:** 

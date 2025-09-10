@@ -51,14 +51,13 @@ college <- readr::read_csv("college_scorecard_data.csv") %>%
 set.seed(98261936)
 ```
 
-## Introduction
+## About Dataset
 
-The U.S. Department of Education's College Scoreboard dataset contains a lot of information about colleges across the United States. For this final project, I will investigate the question:
-
-> "Is there a relationship between how much it costs to attend the college and how much its graduates earn 10 years after enrolling?"
-
-This question is relevant and interesting because many students and families want to know if paying more for college leads to better financial outcomes. To answer this question, I will use the variable 'COSTT4_A'(average cost of attendance) as the predictor and 'MD_EARN_WNE_P10'(median earning of graduates after 10 years) as the outcome. I will create a linear regression model to see if there is a significant relationship between these two continuous variables. The results of this analysis could help students decide if higher college costs are worth it.
-
+This project utilizes a subset of the **College Scorecard Dataset**, a publicly available resource started by the U.S. Department of Education. The raw dataset used in this analysis, college_scorecard_data.csv, is included in this repository for full reproducibility.
+The original dataset is quite large and includes many variables with intentionally suppressed data for privacy reasons.
+* MD_EARN_WNE_P10: Median earnings of students working and not enrolled 10 years after entry.
+* COSTT4_A: Average annual cost of attendance.
+A complete **data dictionary** with detailed explanations for all variables can be found here: [College Scorecard Data Dictionary](https://collegescorecard.ed.gov/data/data-documentation)
 
 
 ## Preprocessing
@@ -71,9 +70,6 @@ rename(
   median_earn_10yr = MD_EARN_WNE_P10
 )
 ```
-
-I've selected only the columns 'COSTT4_A' and 'MD_EARN_WNE_P10' because they are directly relevant to my question, and I've renamed them to make them more human-readible and easier to interpret during the analysis.
-
 
 
 ## Visualization

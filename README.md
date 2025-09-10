@@ -22,3 +22,12 @@ My analysis of the College Scorecard data revealed a statistically significant r
 * **Visualizations:** 
     * **Scatter Plot:** The scatter plot visually supports the linear model's findings, showing a **clear positive trend** between college cost and median earnings.
 ![Scatterplot of College Cost vs. Median Earnings](images/Scatterplot.png)
+
+    * **Violin Plot:** The violin plot of institution types versus earnings provided additional context. It shows that earnings at private non-profit colleges are more spread out and generally higher than those at private for-profit and public institutions, suggesting that institution type is a significant factor in earning potential.
+![Distribution of Median Earnings by Institution Type](images/Violin.png)
+
+
+## Conclusion:
+In conclusion, results suggest that while higher education costs are positively correlated with future earnings, they are only one part of a complex picture. This analysis provides valuable insights for students and families making decisions about higher education, while also pointing to the importance of considering additional factors like a student's program of study, location, and other demographic details.
+
+## Code and Data:

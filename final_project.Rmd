@@ -59,7 +59,6 @@ The original dataset is quite large and includes many variables with intentional
 * COSTT4_A: Average annual cost of attendance.
 A complete **data dictionary** with detailed explanations for all variables can be found here: [College Scorecard Data Dictionary](https://collegescorecard.ed.gov/data/data-documentation)
 
-
 ## Preprocessing
 
 ```{r}
@@ -70,6 +69,7 @@ rename(
   median_earn_10yr = MD_EARN_WNE_P10
 )
 ```
+
 
 
 ## Visualization
@@ -86,9 +86,7 @@ ggplot() +
   )
 ```
 
-i. This histogram shows how college attendance costs are distributed. It helps us understand the typical cost range and whether some colleges are much more expensive than others.
-
-ii. Most colleges have an average cost between $10k and $30k, with a noticeable peak around $20k. As costs increase beyond $30k, the number of colleges decreases. Very few institutions have costs above $60k, and there are no extreme outliers.
+This histogram shows how college attendance costs are distributed. It helps us understand the typical cost range and whether some colleges are much more expensive than others. Most colleges have an average cost between $10k and $30k, with a noticeable peak around $20k. As costs increase beyond $30k, the number of colleges decreases. Very few institutions have costs above $60k, and there are no extreme outliers.
 
 
 ##### Median Earnings after 10 yrs Histogram
@@ -104,9 +102,7 @@ ggplot() +
   )
 ```
 
-i. This histogram shows the distrubution of how much college graduates earn 10 years after entry. It helps us see typical earnings, the overall pattern, and if there are any outliers. 
-
-ii. The histogram above is right-skewed with the most earnings concentrated around $40k. Most of the data is in range of $0 to $100k. There are few colleges showing higher earnings above $100k, and few outliers between $120k and $250k. 
+This histogram shows the distrubution of how much college graduates earn 10 years after entry. It helps us see typical earnings, the overall pattern, and if there are any outliers. The histogram above is right-skewed with the most earnings concentrated around $40k. Most of the data is in range of $0 to $100k. There are few colleges showing higher earnings above $100k, and few outliers between $120k and $250k. 
 
 
 ##### Avg Cost vs. Median Earnings
@@ -121,9 +117,7 @@ ggplot() +
   )
 ```
 
-i. This scatterplot shows the covariation between two continuous variables: average cost of attendance and median earning after 10 years of entry. It helps us see if spending more on colleges leads to higher earnings.
-
-ii. There is a week upward trend: colleges with higher costs tend to have slightly higher earnings. Most colleges have costs below around $50k and earnings below around $70k. A few colleges have very high costs (over $70k) or very high earnings (over $100k).
+This scatterplot shows the covariation between two continuous variables: average cost of attendance and median earning after 10 years of entry. It helps us see if spending more on colleges leads to higher earnings. There is a week upward trend: colleges with higher costs tend to have slightly higher earnings. Most colleges have costs below around $50k and earnings below around $70k. A few colleges have very high costs (over $70k) or very high earnings (over $100k).
 
 
 ##### Covariation between Institution Types and Med Earnings
@@ -139,8 +133,8 @@ college_cleaned <- college %>%
     instit_type = recode(
       CONTROL,
       `1` = "Public",
-      `2` = "Pr.Non-profit",
-      `3` = "Pr.For-profit"
+      `2` = "PNP",
+      `3` = "PFP"
     )
   )
 ```
@@ -157,9 +151,8 @@ ggplot() +
     y = "Median Earnings (in US dollars)"
   )
 ```
-i. This violin plot shows how median earnings of graduates after 10 years on entry vary by institution type: public, private non-profit, and private for-profit. It helps us compare the range and patterns of earnings for each type of institution.
-
-ii. The violin plot by type
+This violin plot shows how median earnings of graduates after 10 years on entry vary by institution type: public, private non-profit, and private for-profit. It helps us compare the range and patterns of earnings for each type of institution. 
+The violin plot by type:
      a. Private For-Profit: earnings are concentrated in the lower range, with most graduates earning below $50k, the distribution is narrow and skewed, suggesting a limited range of earnings.
      b. Private Non-Profit: median earnings are more spread out compared to For-Profit institutions. There is a wider range of earnings, with most graduates earning between $50k and $100k. Some outliers exist above $125k, indicating cases of high earnings.
      c. Public: earnings show a broader range compared to Private For-Profit institutions but are generally lower than Private Non-Profit institutions. Most graduates earn below $60k, but a few outliers reach above $120k.
@@ -262,11 +255,9 @@ qqnorm(college_filtered$residuals, main = "Q-Q Plot of Residuals")
 qqline(college_filtered$residuals, col = "red")
 ```
 
-i. Linearity: reasonably satisfied, the points roughly follow along the red diagonal line, with some scatter suggesting the model doesn't fully capture all variability.
-
-ii. Homoscedasticity: the residuals are scattered around the horizontal red line at 0, but the spread of residuals increases slightly as predicted values increase, which suggests a mild violation of the homoscedasticity assumption.
-
-iii. Normality of Residuals: Most points lie close to the red diagonal line, indicating the residuals are approximately normally distributed. However, the tails deviate significantly from the line, which means presence of outliers. 
+Linearity: reasonably satisfied, the points roughly follow along the red diagonal line, with some scatter suggesting the model doesn't fully capture all variability.
+Homoscedasticity: the residuals are scattered around the horizontal red line at 0, but the spread of residuals increases slightly as predicted values increase, which suggests a mild violation of the homoscedasticity assumption.
+Normality of Residuals: Most points lie close to the red diagonal line, indicating the residuals are approximately normally distributed. However, the tails deviate significantly from the line, which means presence of outliers. 
 
 
 

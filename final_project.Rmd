@@ -1,7 +1,7 @@
 ---
-title: "Final Project"
+title: "The Return on Investment of a College Degree"
 author: "Madina Kanafina"
-date: "`r Sys.Date()`"
+date: "2024-12-07"
 documentclass: article
 geometry: margin=1in
 fontsize: 11pt
@@ -43,7 +43,7 @@ suppressPackageStartupMessages(library(infer))
 suppressPackageStartupMessages(library(modelr))
 suppressPackageStartupMessages(library(broom))
 # Load dataset
-college <- read_rds("college.rds") %>%
+college <- readr::read_csv("college_scorecard_data.csv") %>%
   type_convert(
     na=vctrs::vec_c("", "NA", "PrivacySuppressed")
   )

@@ -11,7 +11,7 @@ A complete **data dictionary** with detailed explanations for all variables can 
 
 ## Project Description:
 
-This data analysis project investigates the relationship between college costs and graduates’ median earnings 10 years after enrollment. Using the U.S. Department of Education's College Scorecard dataset, I performed a linear regression to model how the average cost of attendance predicts future earnings. The analysis revealed a statistically significant positive relationship, suggesting that higher college costs are associated with higher graduate earnings. However, the model's R^{2} value of 34.4% indicates that other factors significantly influence a graduate's earning potential. Key visualizations include a scatter plot of college cost versus median earnings and a violin plot comparing earnings across different institution types.
+This data analysis project investigates the relationship between college costs and graduates’ median earnings 10 years after enrollment. Using the U.S. Department of Education's College Scorecard dataset, I performed a linear regression to model how the average cost of attendance predicts future earnings. The analysis revealed a statistically significant positive relationship, suggesting that higher college costs are associated with higher graduate earnings. However, the model's R-squared value of 34.4% indicates that other factors significantly influence a graduate's earning potential. Key visualizations include a scatter plot of college cost versus median earnings and a violin plot comparing earnings across different institution types.
 
 
 ## Key Findings and Results:

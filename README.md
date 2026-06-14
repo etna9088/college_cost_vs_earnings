@@ -1,4 +1,4 @@
-# Project Title: The Return on Investment of a College Degree
+# The Return on Investment of a College Degree
 
 ## About Dataset: 
 

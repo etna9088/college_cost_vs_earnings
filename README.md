@@ -6,13 +6,13 @@ When evaluating higher education, students and families often make massive finan
 
 ## Core Features & Functionality
 * **Explanatory Model:** Utilized linear regression to map the exact correlation between tuition and income, revealing that every $1 increase in attendance cost is associated with an approximate $4.59 increase in median earnings.
-* **Variance Evaluation:** Calculated an R-squared value of 34.4%, indicating while tuition cost is a strong indicator of future earnings, other external variables (like major, location, and industry) play a heavier role in total income variation.
+* **Variance Evaluation:** Calculated an R-squared value of 34.4%, indicating that while tuition cost is a statistically significant predictor, other variables (major, location, industry) account for most of the variation in earnings.
 * **Categorical Profitability:** Designed distribution visualizations (violin plots) highlighting that private non-profit institutions generally yield higher and more varied long-term earnings compared to public or for-profit counterparts.
 
 ## Tech Stack & Tools
 * **Language:** R 4.2 (`tidyverse`, `broom`, `infer`, `modelr`)
 * **Environment:** RStudio (R Markdown)
-* **Data Science:** Linear Regression, Exploratory Data Analysis, Residual Diagnostics
+* **Data Science:** Linear Regression, Exploratory Data Analysis, Residual Diagnostics,
 * **Version Control:** Git / GitHub
 
 ## Data Architecture & Pipeline
@@ -23,7 +23,7 @@ To explore the code and final report locally:
 
 1. Clone the repository to your local machine:
 ```bash
-git clone [https://github.com/etna9088/college_cost_vs_earnings.git](https://github.com/etna9088/college_cost_vs_earnings.git)
+git clone https://github.com/etna9088/college_cost_vs_earnings.git
 ```
 2. Open the `college_cost_vs_earnings.Rproj` file using RStudio.
 3. Install the required dependencies via the console:

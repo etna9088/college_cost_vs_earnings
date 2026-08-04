@@ -1,5 +1,5 @@
 # The Return on Investment of a College Degree
-A predictive linear regression model built in R that analyzes U.S. Department of Education data to quantify how the cost of college tuition impacts future earnings.
+An explanatory linear regression model built in R that analyzes U.S. Department of Education data to quantify how the cost of college tuition impacts future earnings.
 
 ## Business Problem or Objective
 When evaluating higher education, students and families often make massive financial commitments based on prestige or "gut feeling" rather than quantitative data. The objective of this project is to treat a college degree as a financial asset. By analyzing historical tuition costs against median graduate earnings 10 years post-enrollment, this model provides a data-driven baseline to help determine if taking on higher student debt translates to proportionally higher long-term income.
